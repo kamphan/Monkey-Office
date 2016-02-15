@@ -13,9 +13,13 @@ jQuery(document).ready(function() {
 
     $('#tab_2_selectall').click(function(event) {  //on click 
         
-            $('#table_all .tab_2_check').each(function() { //loop through each checkbox
+            $('.tab_2_check').each(function() { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "tab_2_check"               
             });
+            // alert("click");
+            // checkboxes = document.getElementsByName('tab_2_check');
+            // for each(var checkbox in checkboxes)
+            //     checkbox.checked = source.checked;
        
     });
 
@@ -27,6 +31,8 @@ jQuery(document).ready(function() {
        
     });
 
+
+    
 
     // $('#add_row').click(function(event) {
     //     var doc1 = {{docs[0]}};
