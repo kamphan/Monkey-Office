@@ -151,8 +151,8 @@ module.exports = function(app, passport, schemas) {
 
        		var response = {
        			layout: 'homepage',
-       			//docs: _docs
-       			docs: doclist
+       			docs: _docs
+       			
        		}
        		console.log(response);
 			res.render('home.hbs', response);
