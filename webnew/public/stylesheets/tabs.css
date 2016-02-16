@@ -66,4 +66,17 @@
         text-align: right;
     }
 
+    #tab_2_selectall:hover, #tab_2_unselect:hover{
+        background-color: #337ab7;
+        color: #fff;
+        cursor: pointer;
+    }
+    .each-doc:hover{
+        background-color: rgba(51,122,183,0.21);
+    }
 
+    #search_submit:hover{
+        background-color: #337ab7;
+        color: #fff;
+        cursor: pointer;
+    }

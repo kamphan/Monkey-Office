@@ -124,9 +124,26 @@ module.exports = function(app, passport, schemas) {
        		author: 'Y',
        		filepath: path.resolve('uploads/document/mydoc2.docx')
        	});
+       	var doc3 = new Doc({
+       		personReceive: req.user,
+       		type: 'doc',
+       		name: 'spiderman',
+       		author: 'lol',
+       		filepath: path.resolve('uploads/document/mydoc3.docx')
+       	});
+       	var doc4 = new Doc({
+       		personReceive: req.user,
+       		type: 'doc',
+       		name: 'deadpool',
+       		author: 'haha',
+       		filepath: path.resolve('uploads/document/mydoc4.docx')
+       	});
 
        	// doc1.save();
        	// doc2.save();
+
+       	// doc3.save();
+       	// doc4.save();
 
        	var doclist = [doc1,doc2];
 
@@ -147,14 +164,44 @@ module.exports = function(app, passport, schemas) {
        			return next(err);
        		}
        		
-       		console.log(_docs);
+       		//console.log(_docs);
 
        		var response = {
        			layout: 'homepage',
-       			docs: _docs
+       			docs: _docs,
+       			date: {},
        			
        		}
-       		console.log(response);
+       		console.log("gungun")
+       		console.log(response.docs)
+       		//response.docs.dateCreate[0] 
+       		//var a = new Date(response.docs[0].dateCreate );
+       		//console.log(response.docs[0].dateCreate.getHours() )
+       		//console.log(ja))
+       		for(var i = 0 ; i < response.docs.length ;++i){
+       			var a = response.docs[i].dateCreate;
+       			var mm = a.getMonth()+1;
+       			var dd = a.getDate();
+       			
+       			if(mm<10){
+       				mm = "0"+mm;
+       			}
+       			if(dd<10){
+       				dd = "0"+dd;
+       			}
+       			
+       			response.docs[i].date = a.getFullYear() + '-' +mm+'-'+dd;
+       		}
+       		
+       		//response.docs[0].dateCreate =  a.getYear() + '/' +a.getMonth() +'/'+a.getDay()
+       		
+       		// console.log("update")
+       		// console.log(response.docs[0].gun)
+       		// response.docs[0].dateCreate = a
+       		//response.docs.dateCreate[0].toString('ddd MMM yyy h:mm:ss')
+       		
+       		//console.log(esponse.docs.dateCreate[0].toString('ddd MMM yyy h:mm:ss'))
+       		//console.log(response);
 			res.render('home.hbs', response);
        	});
 
@@ -223,8 +270,29 @@ module.exports = function(app, passport, schemas) {
    			console.log(_docs);
 			var response = {
        			layout: 'homepage',
-       			docs: _docs
+       			docs: _docs,
+       			date: {},
    			}
+   			console.log("gungun")
+       		console.log(response.docs)
+       		//response.docs.dateCreate[0] 
+       		//var a = new Date(response.docs[0].dateCreate );
+       		//console.log(response.docs[0].dateCreate.getHours() )
+       		//console.log(ja))
+       		for(var i = 0 ; i < response.docs.length ;++i){
+       			var a = response.docs[i].dateCreate;
+       			var mm = a.getMonth()+1;
+       			var dd = a.getDate();
+       			
+       			if(mm<10){
+       				mm = "0"+mm;
+       			}
+       			if(dd<10){
+       				dd = "0"+dd;
+       			}
+       			
+       			response.docs[i].date = a.getFullYear() + '-' +mm+'-'+dd;
+       		}
    		
 			res.render('home.hbs', response); 
    		});

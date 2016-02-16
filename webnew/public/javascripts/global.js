@@ -31,8 +31,7 @@ jQuery(document).ready(function() {
        
     });
 
-
-    
+    // var a = this.dateCreate.format(yy-mm-dd);
 
     // $('#add_row').click(function(event) {
     //     var doc1 = {{docs[0]}};
